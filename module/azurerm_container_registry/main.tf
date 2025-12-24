@@ -1,11 +1,11 @@
 resource "azurerm_container_registry" "acr" {
-    for_each = var.acrs
+  for_each            = var.acrs
   name                = each.value.name
   resource_group_name = each.value.resource_group_name
   location            = each.value.location
   sku                 = each.value.sku
 
-  admin_enabled       = each.value.admin_enabled
+  admin_enabled = each.value.admin_enabled
   georeplications {
     location                = each.value.location
     zone_redundancy_enabled = each.value.zone_redundancy_enabled

@@ -6,7 +6,8 @@ type = map(object({
   sku            = string
   admin_enabled   = bool
     zone_redundancy_enabled = bool
-    tags = optional(string)
+    tags = map(object({
+    }))
 }
 )
 )

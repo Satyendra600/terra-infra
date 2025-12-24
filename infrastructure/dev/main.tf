@@ -40,10 +40,11 @@ module "nic" {
 
 }
 module "vms" {
-  depends_on = [module.subnets, module.pip, module.nic]
-  source = "../../module/vm"
-  vms = var.vms
+  depends_on = [module.subnets]
+  source     = "../../module/vm"
+  vms        = var.vms
 }
+
 
 
 # module "key_vault" {
