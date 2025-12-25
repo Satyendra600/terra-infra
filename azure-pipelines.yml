@@ -1,0 +1,6 @@
+trigger: none
+pool:
+  name: Ambujamall
+job:
+  jobs:
+    steps:
