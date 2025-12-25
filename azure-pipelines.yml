@@ -9,22 +9,22 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
     backendServiceArm: 'payro-service-connection'
     backendAzureRmResourceGroupName: 'vinayak_rg'
     backendAzureRmStorageAccountName: 'vinayakstg101'
     backendAzureRmContainerName: 'vinaycontainer'
     backendAzureRmKey: 'terrastate'
-- task: TerraformTask@5
-  displayName: terraform validate
-  inputs:
-    provider: 'azurerm'
-    command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
-- task: TerraformTask@5
-  displayName: teraform plan
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
-    environmentServiceNameAzureRM: 'payro-service-connection'
+# - task: TerraformTask@5
+#   displayName: terraform validate
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'validate'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
+# - task: TerraformTask@5
+#   displayName: teraform plan
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'plan'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
+#     environmentServiceNameAzureRM: 'payro-service-connection'
