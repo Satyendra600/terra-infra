@@ -1,6 +1,6 @@
 trigger: none
-pool:
-  name: Ambujamall
-job:
-  jobs:
-    steps:
+pool: Ambujamall
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
