@@ -1,30 +1,20 @@
-trigger: none
+trigger:
+ branches:
+   include:
+     - main
+     - feature/03
+
 pool: Ambujamall
-steps:
-- task: TerraformInstaller@1
-  inputs:
-    terraformVersion: 'latest'
-- task: TerraformTask@5
-  displayName: teraform init
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-    backendServiceArm: 'payro-service-connection'
-    backendAzureRmResourceGroupName: 'vinayak_rg'
-    backendAzureRmStorageAccountName: 'vinayakstg101'
-    backendAzureRmContainerName: 'vinaycontainer'
-    backendAzureRmKey: 'terrastate'
-- task: TerraformTask@5
-  displayName: terraform validate
-  inputs:
-    provider: 'azurerm'
-    command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-- task: TerraformTask@5
-  displayName: teraform plan
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-    environmentServiceNameAzureRM: 'payro-service-connection'
+
+stages:
+- stage: init
+  displayName: terraform init
+  jobs:
+  - job: terraform init
+    displayName: terraform init
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+    
