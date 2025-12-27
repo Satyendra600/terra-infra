@@ -1,22 +1,8 @@
-trigger:
- branches:
-   include:
-     - main
-     - feature/03
+trigger: none
 
 pool: Ambujamall
 
-stages:
-- stage: init
-  displayName: terraform init
-  jobs:
-  - job: terraforminit
-    displayName: terraform init
-    steps:
-    - task: TerraformInstaller@1
-      inputs:
-        terraformVersion: 'latest'
-    - task: TerraformTask@5
-      inputs:
-        provider: 'azurerm'
-        command: 'init'
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
