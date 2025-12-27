@@ -20,21 +20,3 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)'
-        # backendAzureRmResourceGroupName: 'vinayak_rg'
-        # backendAzureRmStorageAccountName: 'vinayakstg101'
-        # backendAzureRmContainerName: 'vinaycontainer'
-        # backendAzureRmKey: 'terrastate'
-    # - task: TerraformTask@5
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'validate'
-    #     workingDirectory: '$(System.DefaultWorkingDirectory)'
-    # - task: TerraformTask@5
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'plan'
-    #     workingDirectory: '$(System.DefaultWorkingDirectory)infrastructure/dev'
-    #     environmentServiceNameAzureRM: 'payro-service-connection'
-
-    
