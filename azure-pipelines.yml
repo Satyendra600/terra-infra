@@ -10,3 +10,10 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
+    backendAzureRmUseEntraIdForAuthentication: false
+    backendServiceArm: 'payro-service-connection'
+    backendAzureRmResourceGroupName: 'vinayak_rg'
+    backendAzureRmStorageAccountName: 'vinayakstg101'
+    backendAzureRmContainerName: 'vinaycontainer'
+    backendAzureRmKey: 'terrastate'
