@@ -28,4 +28,10 @@ steps:
     outputTo: 'console'
     customCommand: 'fmt'
     environmentServiceNameAzureRM: 'payro-service-connection'
+- task: TerraformTask@5
+  displayName: Terraform Vlidate
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
 
