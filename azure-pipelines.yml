@@ -16,6 +16,7 @@ steps:
     backendAzureRmStorageAccountName: 'vinayakstg101'
     backendAzureRmContainerName: 'vinaycontainer'
     backendAzureRmKey: 'terrastate'
+    backendAzureRmUseEntraIdForAuthentication: false
 #   displayName: Terraformfmt
 #   inputs:
 #     provider: 'azurerm'
