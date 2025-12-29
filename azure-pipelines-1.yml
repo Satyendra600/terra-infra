@@ -1,0 +1,11 @@
+trigger:
+- main
+
+pool: Ambujamall
+
+steps:
+- checkout: self
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
