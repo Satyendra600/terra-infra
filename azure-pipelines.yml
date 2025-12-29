@@ -6,9 +6,10 @@ steps:
 - task: TerraformInstaller@1
   inputs:
     terraformVersion: 'latest'
-- task: TerraformTask@5
+- task: Terraforminit
   inputs:
     provider: 'azurerm'
+  displayName: Terraform Init
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
     backendAzureRmUseEntraIdForAuthentication: false
@@ -18,21 +19,21 @@ steps:
     backendAzureRmContainerName: 'vinaycontainer'
     backendAzureRmKey: 'terrastate'
 - task: TerraformTask@5
+  displayName: Terraformfmt
   inputs:
     provider: 'azurerm'
     command: 'custom'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
-    outputTo: 'console'
     customCommand: 'fmt'
-    environmentServiceNameAzureRM: 'payro-service-connection'
+    outputTo: 'console'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'validate'
     workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
-    environmentServiceNameAzureRM: 'payro-service-connection'
+# - task: TerraformTask@5
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'plan'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
+#     environmentServiceNameAzureRM: 'payro-service-connection'
