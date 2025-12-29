@@ -8,4 +8,15 @@ steps:
 - task: TerraformInstaller@1
   inputs:
     terraformVersion: 'latest'
+- task: TerraformTask@5
+  displayName: Terraform Init
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
+    backendServiceArm: 'payro-service-connection'
+    backendAzureRmResourceGroupName: 'vinayak_rg'
+    backendAzureRmStorageAccountName: 'vinayakstg101'
+    backendAzureRmContainerName: 'vinaycontainer'
+    backendAzureRmKey: 'terrastate'
 
