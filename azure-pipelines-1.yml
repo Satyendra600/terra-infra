@@ -19,4 +19,13 @@ steps:
     backendAzureRmStorageAccountName: 'vinayakstg101'
     backendAzureRmContainerName: 'vinaycontainer'
     backendAzureRmKey: 'terrastate'
+- task: TerraformTask@5
+  displayName: Terraform Fmt
+  inputs:
+    provider: 'azurerm'
+    command: 'custom'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
+    outputTo: 'console'
+    customCommand: 'fmt'
+    environmentServiceNameAzureRM: 'payro-service-connection'
 
