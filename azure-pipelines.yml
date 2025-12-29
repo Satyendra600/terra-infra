@@ -7,12 +7,10 @@ steps:
   inputs:
     terraformVersion: 'latest'
 - task: TerraformTask@5
-  displayName: Terraform Init
   inputs:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
-    backendAzureRmUseEntraIdForAuthentication: false
     backendServiceArm: 'payro-service-connection'
     backendAzureRmResourceGroupName: 'vinayak_rg'
     backendAzureRmStorageAccountName: 'vinayakstg101'
