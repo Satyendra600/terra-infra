@@ -1,36 +1,7 @@
 trigger: none
-
-pool: Ambujamall
-
+pool: satyendrapool
 steps:
 - task: TerraformInstaller@1
+  displayName: Terraform Install
   inputs:
     terraformVersion: 'latest'
-- task: TerraformTask@5
-  # inputs:
-  #   provider: 'azurerm'
-  #   command: 'init'
-  #   workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
-  #   backendServiceArm: 'payro-service-connection'
-  #   backendAzureRmResourceGroupName: 'vinayak_rg'
-  #   backendAzureRmStorageAccountName: 'vinayakstg101'
-  #   backendAzureRmContainerName: 'vinaycontainer'
-  #   backendAzureRmKey: 'terrastate'
-#   displayName: Terraformfmt
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'custom'
-#     customCommand: 'fmt'
-#     outputTo: 'console'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/dev'
-# - task: TerraformTask@5
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'validate'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
-# - task: TerraformTask@5
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'plan'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/infrastructure/dev'
-#     environmentServiceNameAzureRM: 'payro-service-connection'
